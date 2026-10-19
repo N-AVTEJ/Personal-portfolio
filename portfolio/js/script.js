@@ -1,15 +1,15 @@
 /**
  * ALEX RIVERA — DEVELOPER PORTFOLIO
- * Phase 2: Functionality, Interactions & JavaScript
+ * Phase 3: Final Polish, Optimization & Demo Readiness
  * 
  * Features:
  * 1. Semantic Navigation & Active Section Scroll Spy
  * 2. Accessible Responsive Mobile Menu (Drawer, Overlay, Escape key, Outside-click)
- * 3. Smooth Anchor Scrolling with Sticky Header Offset
- * 4. Floating & Footer Back-to-Top Controls
- * 5. Placeholder Link Interceptor with Accessible Toast Notifications
+ * 3. Smooth Anchor Scrolling with Sticky Header Offset & Zero Jump on Top
+ * 4. Unified Passive Scroll Handler (RAF) for 60fps Scroll Spy & Floating Back-to-Top
+ * 5. Accessible Toast Notification System for Sample / Placeholder Links
  * 6. Dynamic Copyright Year
- * 7. Lucide Icon Initialization
+ * 7. Lucide Icon Initialization with Graceful Fallback
  */
 
 (() => {
@@ -21,18 +21,22 @@
   document.addEventListener('DOMContentLoaded', () => {
     initLucideIcons();
     initDynamicYear();
-    initNavigationAndScrollSpy();
+    initNavigationAndSmoothScroll();
     initMobileMenu();
-    initBackToTop();
+    initUnifiedScrollCoordinator();
     initPlaceholderLinkHandler();
   });
 
   /* --------------------------------------------------------------------------
-     1. Lucide Icons Initialization
+     1. Lucide Icons Initialization with Safe Fallback
      -------------------------------------------------------------------------- */
   function initLucideIcons() {
     if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
-      lucide.createIcons();
+      try {
+        lucide.createIcons();
+      } catch (err) {
+        console.warn('Lucide icon rendering encountered a non-fatal warning:', err);
+      }
     }
   }
 
@@ -47,32 +51,32 @@
   }
 
   /* --------------------------------------------------------------------------
-     3. Navigation, Smooth Scrolling & Active Section Scroll Spy
+     3. Navigation & Smooth Anchor Scrolling
      -------------------------------------------------------------------------- */
-  function initNavigationAndScrollSpy() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = Array.from(document.querySelectorAll('section[id]'));
+  function initNavigationAndSmoothScroll() {
     const header = document.getElementById('site-header');
-
-    if (!navLinks.length || !sections.length) return;
 
     // Helper: calculate sticky header height
     const getHeaderOffset = () => (header ? header.offsetHeight + 16 : 80);
 
-    // Smooth scrolling for anchor links with hash
+    // Smooth scrolling for all internal anchor links (excluding placeholder clicks)
     const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"]):not([data-placeholder="true"])');
     anchorLinks.forEach(link => {
       link.addEventListener('click', (event) => {
         const targetId = link.getAttribute('href');
         if (!targetId || targetId === '#') return;
 
-        // Skip to content or top
-        if (targetId === '#top') {
+        // Jump to top of page
+        if (targetId === '#top' || targetId === '#home') {
           event.preventDefault();
           window.scrollTo({
             top: 0,
             behavior: prefersReducedMotion ? 'auto' : 'smooth'
           });
+
+          // Focus skip link or top of main content
+          const skipLink = document.querySelector('.skip-to-content');
+          if (skipLink) skipLink.focus({ preventScroll: true });
           return;
         }
 
@@ -86,62 +90,16 @@
             behavior: prefersReducedMotion ? 'auto' : 'smooth'
           });
 
-          // Move focus to target for accessibility
+          // Move focus to target section for keyboard and screen reader accessibility
           targetElement.setAttribute('tabindex', '-1');
           targetElement.focus({ preventScroll: true });
         }
       });
     });
-
-    // Scroll Spy: Highlight active nav link based on scroll position
-    let isScrollTicking = false;
-
-    function updateActiveNavLink() {
-      const scrollPosition = window.scrollY + getHeaderOffset() + 40;
-      let currentSectionId = '';
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section.offsetTop <= scrollPosition) {
-          currentSectionId = section.getAttribute('id');
-          break;
-        }
-      }
-
-      // Default to first section (home) if scrolled to very top
-      if (!currentSectionId && sections.length > 0) {
-        currentSectionId = sections[0].getAttribute('id');
-      }
-
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        const isMatch = href === `#${currentSectionId}`;
-
-        if (isMatch) {
-          link.classList.add('is-active');
-          link.setAttribute('aria-current', 'true');
-        } else {
-          link.classList.remove('is-active');
-          link.removeAttribute('aria-current');
-        }
-      });
-
-      isScrollTicking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!isScrollTicking) {
-        window.requestAnimationFrame(updateActiveNavLink);
-        isScrollTicking = true;
-      }
-    }, { passive: true });
-
-    // Initial check on load
-    updateActiveNavLink();
   }
 
   /* --------------------------------------------------------------------------
-     4. Responsive Mobile Navigation Menu
+     4. Responsive Mobile Navigation Menu (Drawer & Overlay)
      -------------------------------------------------------------------------- */
   function initMobileMenu() {
     const navToggle = document.getElementById('nav-toggle');
@@ -162,7 +120,7 @@
       navToggle.setAttribute('aria-expanded', 'true');
       navToggle.setAttribute('aria-label', 'Close navigation menu');
 
-      // Prevent background scrolling on narrow screens
+      // Prevent background scrolling on mobile while drawer is active
       document.body.style.overflow = 'hidden';
     }
 
@@ -199,7 +157,7 @@
       navOverlay.addEventListener('click', () => closeMenu(true));
     }
 
-    // Close when clicking on any navigation link inside the drawer
+    // Close when clicking on any navigation link inside drawer
     navLinks.forEach(link => {
       link.addEventListener('click', () => closeMenu(false));
     });
@@ -211,7 +169,7 @@
       }
     });
 
-    // Close mobile menu automatically if viewport is resized to desktop width
+    // Close mobile drawer automatically if window is resized past mobile breakpoint
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && isMenuOpen) {
         closeMenu(false);
@@ -220,12 +178,18 @@
   }
 
   /* --------------------------------------------------------------------------
-     5. Back-to-Top Button Functionality
+     5. Unified Scroll Coordinator (Active Nav Spy + Floating Back-to-Top)
      -------------------------------------------------------------------------- */
-  function initBackToTop() {
+  function initUnifiedScrollCoordinator() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
     const floatingBtn = document.getElementById('back-to-top');
     const footerBtn = document.getElementById('footer-back-to-top');
+    const header = document.getElementById('site-header');
 
+    const getHeaderOffset = () => (header ? header.offsetHeight + 16 : 80);
+
+    // Scroll to Top action handler
     const scrollToTop = (event) => {
       if (event) event.preventDefault();
       window.scrollTo({
@@ -233,51 +197,91 @@
         behavior: prefersReducedMotion ? 'auto' : 'smooth'
       });
 
-      // Shift focus to skip link or body top for keyboard users
       const skipLink = document.querySelector('.skip-to-content');
-      if (skipLink) {
-        skipLink.focus();
-      }
+      if (skipLink) skipLink.focus({ preventScroll: true });
     };
 
     if (floatingBtn) {
       floatingBtn.addEventListener('click', scrollToTop);
+    }
+    if (footerBtn) {
+      footerBtn.addEventListener('click', scrollToTop);
+    }
 
-      // Show/hide floating button based on scroll depth (threshold: 350px)
-      let isBackToTopTicking = false;
+    // Single RAF-throttled scroll observer
+    let isScrollTicking = false;
 
-      const handleScroll = () => {
-        if (window.scrollY > 350) {
+    function handleScrollUpdates() {
+      const currentScrollY = window.scrollY;
+
+      // 1. Update Floating Back-to-Top visibility (threshold: 350px)
+      if (floatingBtn) {
+        if (currentScrollY > 350) {
           floatingBtn.classList.add('is-visible');
         } else {
           floatingBtn.classList.remove('is-visible');
         }
-        isBackToTopTicking = false;
-      };
+      }
 
-      window.addEventListener('scroll', () => {
-        if (!isBackToTopTicking) {
-          window.requestAnimationFrame(handleScroll);
-          isBackToTopTicking = true;
+      // 2. Update Active Navigation Link (Scroll Spy)
+      if (sections.length && navLinks.length) {
+        const scrollPosition = currentScrollY + getHeaderOffset() + 40;
+        let activeSectionId = '';
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          if (section.offsetTop <= scrollPosition) {
+            activeSectionId = section.getAttribute('id');
+            break;
+          }
         }
-      }, { passive: true });
 
-      // Initial check
-      handleScroll();
+        if (!activeSectionId && sections.length > 0) {
+          activeSectionId = sections[0].getAttribute('id');
+        }
+
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          const isMatch = href === `#${activeSectionId}`;
+
+          if (isMatch) {
+            link.classList.add('is-active');
+            link.setAttribute('aria-current', 'true');
+          } else {
+            link.classList.remove('is-active');
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      isScrollTicking = false;
     }
 
-    if (footerBtn) {
-      footerBtn.addEventListener('click', scrollToTop);
-    }
+    window.addEventListener('scroll', () => {
+      if (!isScrollTicking) {
+        window.requestAnimationFrame(handleScrollUpdates);
+        isScrollTicking = true;
+      }
+    }, { passive: true });
+
+    // Initial check on load
+    handleScrollUpdates();
   }
 
   /* --------------------------------------------------------------------------
-     6. Placeholder Link Interceptor with Toast Notifications
+     6. Accessible Toast Notifications for Sample / Placeholder Links
      -------------------------------------------------------------------------- */
   function initPlaceholderLinkHandler() {
     const toastElement = document.getElementById('portfolio-toast');
     const toastMessage = document.getElementById('toast-message');
     let toastTimeout = null;
+
+    function hideToast() {
+      if (toastElement) {
+        toastElement.classList.remove('is-visible');
+        toastElement.setAttribute('aria-hidden', 'true');
+      }
+    }
 
     function showToast(message) {
       if (!toastElement || !toastMessage) return;
@@ -290,13 +294,17 @@
         clearTimeout(toastTimeout);
       }
 
-      toastTimeout = setTimeout(() => {
-        toastElement.classList.remove('is-visible');
-        toastElement.setAttribute('aria-hidden', 'true');
-      }, 3400);
+      toastTimeout = setTimeout(hideToast, 3400);
     }
 
-    // Event delegation: capture clicks on any placeholder link
+    // Dismiss toast on Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toastElement && toastElement.classList.contains('is-visible')) {
+        hideToast();
+      }
+    });
+
+    // Event delegation: intercepts clicks on placeholder links
     document.addEventListener('click', (event) => {
       const placeholderLink = event.target.closest('[data-placeholder="true"]');
       if (!placeholderLink) return;
