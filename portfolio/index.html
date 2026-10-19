@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alex Rivera — Senior Full-Stack Engineer & Designer crafting high-performance digital experiences with clean architecture, accessible interfaces, and refined motion.">
+  <meta name="keywords" content="Developer Portfolio, Full Stack Developer, Frontend Engineer, Web Design, JavaScript, TypeScript, CSS Architecture">
+  <meta name="author" content="Alex Rivera">
+  <meta name="theme-color" content="#0c0e12">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Alex Rivera — Developer & Designer">
+  <meta property="og:description" content="Personal developer portfolio showcasing full-stack engineering, interface craftsmanship, and scalable web solutions.">
+  <meta property="og:type" content="website">
+
+  <title>Alex Rivera — Developer & Interface Craftsman</title>
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body id="top">
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Ambient Glow Background Canvas -->
+  <div class="ambient-glow ambient-glow--top" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow--bottom" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       A. NAVIGATION BAR
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#top" class="brand-logo" aria-label="Alex Rivera home">
+        <span class="brand-bracket" aria-hidden="true">&lt;</span>
+        <span class="brand-name">Alex Rivera</span>
+        <span class="brand-accent" aria-hidden="true">/&gt;</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn btn--primary btn--header">
+          <span>Let's Talk</span>
+          <i data-lucide="arrow-up-right" class="btn-icon" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
+  <main id="main-content">
+    
+    <!-- ========================================================================
+         B. HERO SECTION
+         ======================================================================== -->
+    <section class="section hero-section" id="home" aria-labelledby="hero-title">
+      <div class="container hero-container">
+        
+        <!-- Hero Content Column -->
+        <div class="hero-content">
+          <!-- Availability Badge -->
+          <div class="status-badge" role="status">
+            <span class="status-indicator">
+              <span class="status-dot"></span>
+              <span class="status-ping" aria-hidden="true"></span>
+            </span>
+            <span class="status-text">Available for new projects &amp; collaborations</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="hero-title" id="hero-title">
+            I build <span class="highlight-text">digital experiences</span> that make a real difference.
+          </h1>
+
+          <!-- Hero Editable Introduction -->
+          <p class="hero-description">
+            Hello, I'm Alex. A full-stack engineer and interface craftsman specializing in architecting resilient web platforms, accessible design systems, and lightning-fast web applications.
+          </p>
+
+          <!-- Call To Action Row -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn--primary">
+              <span>Explore My Work</span>
+              <i data-lucide="folder-kanban" class="btn-icon" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn btn--secondary">
+              <span>Let's Connect</span>
+              <i data-lucide="mail" class="btn-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Compact Social Links Row -->
+          <div class="hero-socials">
+            <span class="social-label">Find me on</span>
+            <div class="social-links-row">
+              <a href="https://github.com/placeholder" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile (Sample link)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                <span class="social-tooltip">GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/placeholder" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile (Sample link)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span class="social-tooltip">LinkedIn</span>
+              </a>
+              <a href="https://twitter.com/placeholder" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter Profile (Sample link)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                <span class="social-tooltip">Twitter</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Decorative Code/Terminal Card -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-card">
+            <!-- Window Bar -->
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <span class="terminal-title">developer_profile.ts</span>
+              <span class="terminal-tag">TypeScript</span>
+            </div>
+
+            <!-- Terminal Code Body -->
+            <div class="terminal-body">
+              <pre class="code-block"><code><span class="code-keyword">interface</span> <span class="code-type">Engineer</span> {
+  name: <span class="code-string">string</span>;
+  role: <span class="code-string">string</span>;
+  coreStack: <span class="code-string">string</span>[];
+  availability: <span class="code-string">string</span>;
+}
+
+<span class="code-keyword">const</span> <span class="code-const">alexRivera</span>: <span class="code-type">Engineer</span> = {
+  name: <span class="code-string">"Alex Rivera"</span>,
+  role: <span class="code-string">"Full-Stack Architect"</span>,
+  coreStack: [
+    <span class="code-string">"TypeScript"</span>,
+    <span class="code-string">"Node.js"</span>,
+    <span class="code-string">"Modern CSS"</span>,
+    <span class="code-string">"PostgreSQL"</span>
+  ],
+  availability: <span class="code-accent">"Q4 2026 // Active"</span>
+};
+
+<span class="code-comment">// Output: Built for speed, accessibility &amp; craft</span>
+<span class="code-fn">console</span>.<span class="code-method">log</span>(<span class="code-string">`Status: ${</span><span class="code-const">alexRivera</span>.<span class="code-prop">availability</span><span class="code-string">}`</span>);</code></pre>
+            </div>
+
+            <!-- Terminal Status Footer -->
+            <div class="terminal-footer">
+              <div class="status-chip">
+                <i data-lucide="cpu" class="chip-icon"></i>
+                <span>60 FPS Motion</span>
+              </div>
+              <div class="status-chip">
+                <i data-lucide="shield-check" class="chip-icon"></i>
+                <span>WCAG AAA Contrast</span>
+              </div>
+              <div class="status-chip">
+                <i data-lucide="zap" class="chip-icon"></i>
+                <span>0 Build Steps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         C. ABOUT SECTION
+         ======================================================================== -->
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag" id="about-tag">01 // ABOUT</span>
+          <h2 class="section-title" id="about-title">A little about me.</h2>
+          <p class="section-subtitle">
+            Bridging the gap between engineering rigor and aesthetic sensitivity to craft purposeful software.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Biography Text Column -->
+          <div class="about-bio-card">
+            <h3 class="about-bio-heading">Designing with intent, engineering for durability</h3>
+            <p class="bio-paragraph">
+              I am a web developer passionate about creating frictionless user experiences and clean, robust web architectures. Over the past several years, I have worked across the stack—from pixel-perfect design systems and fluid CSS animations to scalable backend services and database modeling.
+            </p>
+            <p class="bio-paragraph">
+              My philosophy centers on simplicity, web standards, and empathy for the end user. When code is clean and deliberate, products feel effortless to navigate, resilient under load, and accessible to everyone.
+            </p>
+            <div class="bio-note">
+              <i data-lucide="info" class="bio-note-icon" aria-hidden="true"></i>
+              <span>This biography and all highlights are sample placeholders designed to be easily customized with your personal story.</span>
+            </div>
+          </div>
+
+          <!-- 3 Information Blocks -->
+          <div class="about-blocks-column">
+            
+            <!-- Block 1: Focus Areas -->
+            <article class="info-block">
+              <div class="info-block-icon" aria-hidden="true">
+                <i data-lucide="layers"></i>
+              </div>
+              <div class="info-block-content">
+                <h4 class="info-block-title">Primary Focus Areas</h4>
+                <p class="info-block-desc">
+                  Modern web standards, responsive design systems, headless architectures, and micro-frontend state management with zero unnecessary bloat.
+                </p>
+              </div>
+            </article>
+
+            <!-- Block 2: Current Learning -->
+            <article class="info-block">
+              <div class="info-block-icon" aria-hidden="true">
+                <i data-lucide="book-open"></i>
+              </div>
+              <div class="info-block-content">
+                <h4 class="info-block-title">Current Learning</h4>
+                <p class="info-block-desc">
+                  Exploring WebGPU shaders for data visualization, distributed consensus protocols (Raft), and accessibility auditing with automated AST tools.
+                </p>
+              </div>
+            </article>
+
+            <!-- Block 3: Outside Code -->
+            <article class="info-block">
+              <div class="info-block-icon" aria-hidden="true">
+                <i data-lucide="compass"></i>
+              </div>
+              <div class="info-block-content">
+                <h4 class="info-block-title">Interests &amp; Pursuits</h4>
+                <p class="info-block-desc">
+                  Analog synthesizers, mechanical keyboards, street photography, and participating in local open-source meetups.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         D. SELECTED PROJECTS SECTION
+         ======================================================================== -->
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">02 // PORTFOLIO</span>
+          <h2 class="section-title" id="projects-title">Selected Projects.</h2>
+          <p class="section-subtitle">
+            A curated showcase of applications built with modern tools, performance-first mindsets, and accessible UI patterns.
+          </p>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="projects-grid">
+          
+          <!-- Project Card 1: Aura Analytics -->
+          <article class="project-card">
+            <!-- CSS Visual Preview Frame -->
+            <div class="project-preview project-preview--analytics" aria-label="Visual preview illustration for Aura Analytics project">
+              <div class="preview-mockup">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-path">aura-analytics.internal/dashboard</span>
+                </div>
+                <div class="mockup-screen">
+                  <div class="mockup-stat-row">
+                    <div class="mockup-stat-box">
+                      <span class="mockup-label">Throughput</span>
+                      <span class="mockup-val mockup-val--lime">98.4k req/s</span>
+                    </div>
+                    <div class="mockup-stat-box">
+                      <span class="mockup-label">P99 Latency</span>
+                      <span class="mockup-val">12ms</span>
+                    </div>
+                  </div>
+                  <!-- SVG Trendline Chart -->
+                  <div class="mockup-chart-container">
+                    <svg class="mockup-chart-svg" viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="chartGlow" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#ccff00" stop-opacity="0.35"/>
+                          <stop offset="100%" stop-color="#ccff00" stop-opacity="0.0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M0,45 Q35,10 70,30 T140,15 T210,35 T280,8 L280,60 L0,60 Z" fill="url(#chartGlow)" />
+                      <path d="M0,45 Q35,10 70,30 T140,15 T210,35 T280,8" fill="none" stroke="#ccff00" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">Performance Engineering</span>
+                <span class="project-status-indicator">Sample Project</span>
+              </div>
+              <h3 class="project-title">Aura Real-Time Analytics</h3>
+              <p class="project-description">
+                A high-throughput distributed observability platform providing sub-second streaming metrics, custom telemetry pipelines, and predictive latency alerting for cloud microservices.
+              </p>
+              
+              <ul class="project-tags" aria-label="Technologies used">
+                <li class="tag">TypeScript</li>
+                <li class="tag">Next.js</li>
+                <li class="tag">WebSockets</li>
+                <li class="tag">ClickHouse</li>
+                <li class="tag">CSS Grid</li>
+              </ul>
+
+              <div class="project-links">
+                <a href="#projects" class="project-link project-link--demo" aria-label="Explore live demo for Aura Analytics (Sample link)">
+                  <span>Live Preview</span>
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/placeholder/aura-analytics" class="project-link project-link--github" target="_blank" rel="noopener noreferrer" aria-label="Source code for Aura Analytics on GitHub (Sample link)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2: Kroma Design System -->
+          <article class="project-card">
+            <!-- CSS Visual Preview Frame -->
+            <div class="project-preview project-preview--design" aria-label="Visual preview illustration for Kroma Design System project">
+              <div class="preview-mockup">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-path">kroma-tokens.ui/spec</span>
+                </div>
+                <div class="mockup-screen">
+                  <div class="kroma-swatches">
+                    <div class="swatch swatch--lime" title="Accent Lime"></div>
+                    <div class="swatch swatch--charcoal" title="Deep Charcoal"></div>
+                    <div class="swatch swatch--surface" title="Elevated Surface"></div>
+                    <div class="swatch swatch--muted" title="Muted Gray"></div>
+                  </div>
+                  <div class="kroma-ui-sample">
+                    <div class="mini-btn mini-btn--primary">Primary Action</div>
+                    <div class="mini-btn mini-btn--outline">Secondary</div>
+                    <div class="mini-badge">Accessible AAA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">UI / UX Architecture</span>
+                <span class="project-status-indicator">Sample Project</span>
+              </div>
+              <h3 class="project-title">Kroma Multi-Brand Design System</h3>
+              <p class="project-description">
+                A unified design token repository and accessible component system with automatic theme synchronization, WCAG AAA compliance enforcement, and zero-runtime CSS variables.
+              </p>
+              
+              <ul class="project-tags" aria-label="Technologies used">
+                <li class="tag">Design Tokens</li>
+                <li class="tag">Vanilla CSS</li>
+                <li class="tag">Web Components</li>
+                <li class="tag">Storybook</li>
+                <li class="tag">WCAG 2.1</li>
+              </ul>
+
+              <div class="project-links">
+                <a href="#projects" class="project-link project-link--demo" aria-label="Explore live demo for Kroma Design System (Sample link)">
+                  <span>Live Preview</span>
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/placeholder/kroma-design-system" class="project-link project-link--github" target="_blank" rel="noopener noreferrer" aria-label="Source code for Kroma Design System on GitHub (Sample link)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3: Veloce Distributed Cache -->
+          <article class="project-card">
+            <!-- CSS Visual Preview Frame -->
+            <div class="project-preview project-preview--backend" aria-label="Visual preview illustration for Veloce Cache project">
+              <div class="preview-mockup">
+                <div class="mockup-header">
+                  <div class="mockup-dots"><span></span><span></span><span></span></div>
+                  <span class="mockup-path">veloce-cluster.node:6379</span>
+                </div>
+                <div class="mockup-screen">
+                  <div class="cluster-nodes-visual">
+                    <div class="node-box node-box--leader">
+                      <span class="node-pulse"></span>
+                      <span class="node-id">Node A [Leader]</span>
+                    </div>
+                    <div class="node-connector">
+                      <span class="connector-line"></span>
+                      <span class="connector-tag">Raft Consensus</span>
+                      <span class="connector-line"></span>
+                    </div>
+                    <div class="node-box node-box--follower">
+                      <span class="node-id">Node B [Follower]</span>
+                    </div>
+                  </div>
+                  <div class="cluster-log">
+                    <code>&gt; CLUSTER REPLICATE OK [offset: 49204]</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-category">Backend &amp; Distributed Systems</span>
+                <span class="project-status-indicator">Sample Project</span>
+              </div>
+              <h3 class="project-title">Veloce In-Memory Cache Engine</h3>
+              <p class="project-description">
+                A high-concurrency key-value store featuring an asynchronous replication engine, Raft-based leader election, deterministic memory reclamation, and Redis wire protocol support.
+              </p>
+              
+              <ul class="project-tags" aria-label="Technologies used">
+                <li class="tag">Go</li>
+                <li class="tag">Redis Protocol</li>
+                <li class="tag">Raft</li>
+                <li class="tag">Docker</li>
+                <li class="tag">Distributed Systems</li>
+              </ul>
+
+              <div class="project-links">
+                <a href="#projects" class="project-link project-link--demo" aria-label="Explore live demo for Veloce Cache (Sample link)">
+                  <span>Live Preview</span>
+                  <i data-lucide="external-link" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/placeholder/veloce-cache" class="project-link project-link--github" target="_blank" rel="noopener noreferrer" aria-label="Source code for Veloce Cache on GitHub (Sample link)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Sample Disclaimer -->
+        <p class="projects-disclaimer">
+          Note: The above projects are curated sample templates for portfolio presentation. Replace titles, descriptions, and repository links with your genuine creations.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         E. SKILLS SECTION
+         ======================================================================== -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">03 // CAPABILITIES</span>
+          <h2 class="section-title" id="skills-title">Technical Expertise.</h2>
+          <p class="section-subtitle">
+            Tools, languages, and methodologies leveraged to bring performant, resilient applications from concept to deployment.
+          </p>
+        </div>
+
+        <div class="skills-categories-grid">
+          
+          <!-- Category 1: Frontend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box" aria-hidden="true">
+                <i data-lucide="layout"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Frontend Engineering</h3>
+                <span class="category-count">Interface &amp; Client Logic</span>
+              </div>
+            </div>
+            <ul class="skill-tags-list" aria-label="Frontend skills list">
+              <li class="skill-tag">HTML5 Semantic Structure</li>
+              <li class="skill-tag">Modern CSS3 (Grid &amp; Flexbox)</li>
+              <li class="skill-tag">CSS Custom Properties</li>
+              <li class="skill-tag">Vanilla JavaScript (ESNext)</li>
+              <li class="skill-tag">TypeScript</li>
+              <li class="skill-tag">Web Accessibility (a11y)</li>
+              <li class="skill-tag">Responsive Web Design</li>
+              <li class="skill-tag">Component Architecture</li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Backend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box" aria-hidden="true">
+                <i data-lucide="server"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Backend Architecture</h3>
+                <span class="category-count">Services &amp; APIs</span>
+              </div>
+            </div>
+            <ul class="skill-tags-list" aria-label="Backend skills list">
+              <li class="skill-tag">Node.js Runtime</li>
+              <li class="skill-tag">RESTful API Design</li>
+              <li class="skill-tag">GraphQL Services</li>
+              <li class="skill-tag">Authentication (JWT / OAuth)</li>
+              <li class="skill-tag">Microservice Patterns</li>
+              <li class="skill-tag">Server-Sent Events (SSE)</li>
+              <li class="skill-tag">WebSockets</li>
+              <li class="skill-tag">API Rate Limiting &amp; Security</li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Databases -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box" aria-hidden="true">
+                <i data-lucide="database"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Data &amp; Persistence</h3>
+                <span class="category-count">Databases &amp; Caching</span>
+              </div>
+            </div>
+            <ul class="skill-tags-list" aria-label="Databases skills list">
+              <li class="skill-tag">PostgreSQL</li>
+              <li class="skill-tag">SQL Query Optimization</li>
+              <li class="skill-tag">Redis Caching</li>
+              <li class="skill-tag">Data Modeling &amp; Migration</li>
+              <li class="skill-tag">MongoDB / Document Stores</li>
+              <li class="skill-tag">ACID Transactions</li>
+              <li class="skill-tag">Connection Pooling</li>
+            </ul>
+          </div>
+
+          <!-- Category 4: Tools & Workflow -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box" aria-hidden="true">
+                <i data-lucide="wrench"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Tools &amp; Workflows</h3>
+                <span class="category-count">DevOps &amp; Quality</span>
+              </div>
+            </div>
+            <ul class="skill-tags-list" aria-label="Tools and workflows list">
+              <li class="skill-tag">Git &amp; GitHub Workflows</li>
+              <li class="skill-tag">Docker Containerization</li>
+              <li class="skill-tag">CI/CD Automation Pipelines</li>
+              <li class="skill-tag">Linux / POSIX Shell</li>
+              <li class="skill-tag">Chrome DevTools Profiling</li>
+              <li class="skill-tag">Lighthouse Performance Audits</li>
+              <li class="skill-tag">Postman / Insomnia</li>
+              <li class="skill-tag">Figma to Code Workflows</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         F. CONTACT SECTION
+         ======================================================================== -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        
+        <div class="contact-card">
+          <!-- Ambient card accent glow -->
+          <div class="contact-card-glow" aria-hidden="true"></div>
+
+          <div class="contact-header">
+            <span class="section-tag">04 // INITIATE DIALOGUE</span>
+            <h2 class="contact-title" id="contact-title">
+              Have a project in mind?<br>
+              <span class="highlight-text">Let's build something extraordinary.</span>
+            </h2>
+            <p class="contact-subtitle">
+              Whether you are looking to kickstart a new greenfield web project, elevate an existing design system, or simply chat about engineering practices, my inbox is always open.
+            </p>
+          </div>
+
+          <!-- Direct Email Anchor -->
+          <div class="contact-action-wrapper">
+            <a href="mailto:alex.rivera@example.com" class="email-cta-link" aria-label="Send email to alex.rivera@example.com">
+              <span class="email-cta-icon" aria-hidden="true">
+                <i data-lucide="mail"></i>
+              </span>
+              <span class="email-cta-address">alex.rivera@example.com</span>
+              <span class="email-cta-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right"></i>
+              </span>
+            </a>
+            <span class="contact-response-time">
+              <i data-lucide="clock" class="response-icon" aria-hidden="true"></i>
+              Typical response time: within 24 business hours
+            </span>
+          </div>
+
+          <!-- Alternative Social Profiles -->
+          <div class="contact-socials-block">
+            <span class="contact-socials-title">Direct Profiles &amp; Networks</span>
+            <div class="contact-social-pills">
+              <a href="https://github.com/placeholder" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Connect on GitHub (Sample link)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/placeholder" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn (Sample link)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://twitter.com/placeholder" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Connect on X / Twitter (Sample link)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                <span>Twitter / X</span>
+              </a>
+              <a href="https://codepen.io/placeholder" class="social-pill" target="_blank" rel="noopener noreferrer" aria-label="Check experiments on CodePen (Sample link)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg>
+                <span>CodePen</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       G. FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" id="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand">
+        <a href="#top" class="brand-logo" aria-label="Alex Rivera home">
+          <span class="brand-bracket" aria-hidden="true">&lt;</span>
+          <span class="brand-name">Alex Rivera</span>
+          <span class="brand-accent" aria-hidden="true">/&gt;</span>
+        </a>
+        <p class="footer-tagline">
+          Crafting durable, accessible, and fast web experiences with modern web standards.
+        </p>
+      </div>
+
+      <div class="footer-meta">
+        <!-- Back to Top Link -->
+        <a href="#top" class="back-to-top-btn" aria-label="Back to top of page">
+          <span>Back to Top</span>
+          <i data-lucide="arrow-up" aria-hidden="true"></i>
+        </a>
+
+        <!-- Copyright Notice with Dynamic Year Target -->
+        <p class="footer-copyright">
+          &copy; <span id="current-year">2026</span> Alex Rivera. Built for Day 1 of 100 Web Dev Projects challenge.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
