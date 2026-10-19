@@ -1615,6 +1615,86 @@ button, input, textarea, select {
   color: var(--text-muted);
 }
 
+/* Floating Back to Top Button */
+.back-to-top-floating {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 85;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: all var(--transition-normal);
+}
+
+.back-to-top-floating.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-floating:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.back-to-top-floating:active {
+  transform: translateY(0);
+}
+
+/* Accessible Toast Notification for Placeholder Links */
+.portfolio-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--bg-surface-card);
+  border: 1px solid var(--accent-lime-border);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+  color: var(--text-primary);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  z-index: 1000;
+  max-width: 90vw;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.portfolio-toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.toast-icon {
+  color: var(--accent-lime);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 /* --------------------------------------------------------------------------
    13. RESPONSIVE DESIGN (Media Queries)
    -------------------------------------------------------------------------- */
@@ -1644,7 +1724,7 @@ button, input, textarea, select {
   }
 }
 
-/* Tablets (max-width: 768px) */
+/* Tablets & Mobile Navigation (max-width: 768px) */
 @media (max-width: 768px) {
   :root {
     --header-height: 70px;
@@ -1652,12 +1732,60 @@ button, input, textarea, select {
     --space-3xl: 3rem;
   }
 
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: rgba(18, 22, 32, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-medium);
+    padding: var(--space-lg) 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+    pointer-events: none;
+    z-index: 95;
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
   .nav-list {
-    gap: var(--space-md);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
   }
 
   .nav-link {
-    font-size: 0.875rem;
+    display: block;
+    font-size: 1.0625rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .nav-link:hover,
+  .nav-link.is-active,
+  .nav-link[aria-current="true"] {
+    background-color: var(--bg-surface-elevated);
+    color: var(--accent-lime);
+  }
+
+  .nav-link::after {
+    display: none;
   }
 
   .projects-grid {
@@ -1681,21 +1809,12 @@ button, input, textarea, select {
 
 /* Mobile Devices (max-width: 580px) */
 @media (max-width: 580px) {
-  .header-actions {
-    display: none; /* Keep header clean on small mobile */
+  .header-actions .btn--header {
+    display: none; /* Hide Let's Talk button in header, keep hamburger toggle */
   }
 
   .site-header {
     height: 64px;
-  }
-
-  .nav-list {
-    gap: var(--space-xs);
-  }
-
-  .nav-link {
-    font-size: 0.8125rem;
-    padding: 0.2rem 0.3rem;
   }
 
   .hero-actions {
@@ -1727,6 +1846,13 @@ button, input, textarea, select {
 
   .code-block {
     font-size: 0.75rem;
+  }
+
+  .back-to-top-floating {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
   }
 }
 
